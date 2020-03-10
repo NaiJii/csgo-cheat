@@ -207,8 +207,18 @@
     <ClCompile Include="hooks\functions\GetColorModulation.cpp">
       <Filter>source\hooks\functions</Filter>
     </ClCompile>
-    <ClCompile Include="hooks\functions\GetAlphaModulation.cpp" />
-    <ClCompile Include="hooks\functions\SvCheatsGetBool.cpp" />
+    <ClCompile Include="hooks\functions\GetAlphaModulation.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\functions\Present.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\functions\Reset.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\functions\SvCheatsGetBool.cpp">
+      <Filter>source\hooks\functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdk\IBaseClientDLL.h">
@@ -406,11 +416,17 @@
     <ClInclude Include="math\vector2d.h">
       <Filter>source\math</Filter>
     </ClInclude>
-    <ClInclude Include="menu\objects\checkbox.h" />
-    <ClInclude Include="menu\objects\sliders.h" />
     <ClInclude Include="interfaces\interfaces.h">
       <Filter>source\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\CInput.h" />
+    <ClInclude Include="menu\objects\sliders.h">
+      <Filter>source\menu\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\objects\checkbox.h">
+      <Filter>source\menu\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\CInput.h">
+      <Filter>source\sdk</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

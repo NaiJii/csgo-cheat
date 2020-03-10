@@ -15,7 +15,7 @@ namespace n_hooks {
 			if ( reinterpret_cast< std::uintptr_t >( _ReturnAddress( ) ) == unknown_return )
 				return false;
 
-			return original_fn( ecx );
+			return n_interfaces::engine->is_connected();
 		}
 	}
 }

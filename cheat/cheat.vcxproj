@@ -72,18 +72,20 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath)</IncludePath>
+    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$(Configuration)\</IntDir>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)\</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath)</IncludePath>
+    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$(Configuration)\</IntDir>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)\</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -175,6 +177,8 @@
     <ClCompile Include="hooks\functions\OnRemoveEntity.cpp" />
     <ClCompile Include="hooks\functions\OnScreenSizeChanged.cpp" />
     <ClCompile Include="hooks\functions\Paint.cpp" />
+    <ClCompile Include="hooks\functions\Present.cpp" />
+    <ClCompile Include="hooks\functions\Reset.cpp" />
     <ClCompile Include="hooks\functions\ShouldDrawCrosshair.cpp" />
     <ClCompile Include="hooks\functions\DrawModel.cpp" />
     <ClCompile Include="hooks\functions\FindMDL.cpp" />

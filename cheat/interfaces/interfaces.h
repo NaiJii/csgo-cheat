@@ -1,5 +1,7 @@
 #pragma once
 
+#include <d3d9.h>
+
 #include "../sdk.h"
 #include "../utilities/utilities.h"
 
@@ -29,6 +31,7 @@ namespace n_interfaces {
 	extern n_sdk::CPrediction* prediction;
 	extern n_sdk::CGameMovement* game_movement;
 	extern n_sdk::IMoveHelper* move_helper;
+    extern IDirect3DDevice9* direct3d;
 
 	bool setup( void );
 }

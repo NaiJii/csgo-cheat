@@ -56,13 +56,15 @@ unsigned long __stdcall setup_cheat( const HMODULE dll ) {
 		std::this_thread::sleep_for( std::chrono::milliseconds( 25 ) );
 
 	// attempt to unload the cheat
-	if ( !unload_cheat( ) )
-		return 0;
+    if ( !unload_cheat() ) {
+        std::exception( "could not unload cheat" );
+        return FALSE;
+    }
 
 	// decrements the reference count of the dll and then calls ExitThread to terminate the thread
 	FreeLibraryAndExitThread( dll, 0 );
 
-	return 1;
+	return TRUE;
 }
 
 // https://docs.microsoft.com/en-us/windows/win32/dlls/dllmain
@@ -77,11 +79,11 @@ int __stdcall DllMain( const HMODULE dll, const DWORD reason, const LPVOID reser
 
 		// if CreateThread fails it will return 0
 		if ( !cheat_thread )
-			return 0;
+			return FALSE;
 
 		// its importatnt to call CloseHandle as handles occupy kernal and userspace memory ( which is limited )
 		CloseHandle( cheat_thread );
 	}
 
-	return 1;
+	return TRUE;
 }

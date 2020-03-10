@@ -82,8 +82,11 @@ namespace n_hooks {
         bool __fastcall SvCheatsGetBool( std::uintptr_t ecx, std::uintptr_t edx ); // 13
 
 		/* Window Procedure */
-		LRESULT __stdcall WindowProc( HWND hwnd, unsigned int msg, WPARAM wparam, LPARAM lparam );
+		LRESULT WINAPI WindowProc( HWND hwnd, unsigned int msg, WPARAM wparam, LPARAM lparam );
 
+        /* Direct3D */
+        HRESULT __stdcall Reset( IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* parameters ); // 16
+        HRESULT __stdcall Present( IDirect3DDevice9* device, RECT* src, RECT* dst, HWND window_override, RGNDATA* region ); // 17
 	}
 
 	// attempt to revert all of the vfts and free the allocated memory

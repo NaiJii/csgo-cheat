@@ -126,14 +126,21 @@ namespace n_hooks {
         } ) )
             return false;
 
+        /* Direct3D */
+        if ( !vmt_manager->hook_vft( n_interfaces::direct3d, []( n_vmt::c_vmt * vmt ) -> bool { 
+            return vmt->hook( 16, n_functions::Reset ) 
+                && vmt->hook( 17, n_functions::Present );
+        } ) )
+            return false;
+
 		return true;
 	}
 
 	bool unload( void ) {
+        SetWindowLongPtr( n_interfaces::app_window, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>( original_window_procedure ) );
+
 		if ( !vmt_manager->unload( ) )
 			return false;
-
-		SetWindowLongPtr( n_interfaces::app_window, GWLP_WNDPROC, reinterpret_cast< LONG_PTR >( original_window_procedure ) );
 
 		return true;
 	}

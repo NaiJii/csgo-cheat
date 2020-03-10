@@ -31,6 +31,7 @@ namespace n_interfaces {
 	n_sdk::CPrediction* prediction = nullptr;
 	n_sdk::CGameMovement* game_movement = nullptr;
 	n_sdk::IMoveHelper* move_helper = nullptr;
+    IDirect3DDevice9* direct3d = nullptr;
 
 	// attempts to get all the interfaces. the function successfully gets all the interfaces it will return true
 	bool setup( void ) {
@@ -157,6 +158,11 @@ namespace n_interfaces {
 
 		if ( !move_helper )
 			return false;
+
+        direct3d = **reinterpret_cast<IDirect3DDevice9 * **>( n_utilities::find_pattern( "shaderapidx9.dll", "A1 ? ? ? ? 50 8B 08 FF 51 0C" ) + 0x1 );
+
+        if ( !direct3d )
+            return false;
 
 		return true;
 	}
