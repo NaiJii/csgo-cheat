@@ -1,6 +1,33 @@
 #include "render.h"
 
 namespace n_render {
+    bool n_render::initialize(IDirect3DDevice9* device) {
+        if ( !device )
+            return false;
+
+        n_directx::device = device;
+        return true;
+    }
+
+    /* Drawing functions */
+    void draw_filled_rect( const int x, const int y, const int w, const int h, color_t color ) {
+        static D3DRECT rect;
+        rect = { x, y, x + w, y + h };
+        n_directx::device->Clear( 1, &rect, D3DCLEAR_TARGET, D3DCOLOR_RGBA( color.r, color.g, color.b, color.a ), 0.f, 0 );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	bool c_graphics::get( void ) {
 		auto create_font = [ & ]( n_sdk::HFont& font, const std::string name, const int size, const int weight, const int flags ) -> bool {

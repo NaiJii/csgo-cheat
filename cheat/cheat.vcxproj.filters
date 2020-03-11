@@ -219,6 +219,9 @@
     <ClCompile Include="hooks\functions\SvCheatsGetBool.cpp">
       <Filter>source\hooks\functions</Filter>
     </ClCompile>
+    <ClCompile Include="render\directx.cpp">
+      <Filter>source\render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdk\IBaseClientDLL.h">
@@ -427,6 +430,9 @@
     </ClInclude>
     <ClInclude Include="sdk\CInput.h">
       <Filter>source\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="render\directx.h">
+      <Filter>source\render</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,6 +6,18 @@
 namespace n_hooks {
     namespace n_functions {
         HRESULT __stdcall Present( IDirect3DDevice9* device, RECT* src, RECT* dst, HWND window_override, RGNDATA* region ) {
+            static auto original_fn = vmt_manager->get_original_fn<HRESULT( __stdcall* )( IDirect3DDevice9*, RECT*, RECT*, HWND, RGNDATA* )>( Present );
+            static bool initialized = false; // meh
+            if ( !initialized ) {
+                if (!n_render::initialize( device ))
+                    return original_fn( device, src, dst, window_override, region );
+                initialized = true;
+            }
+   
+            
+
+
+
             //IDirect3DStateBlock9* state = nullptr;
             //IDirect3DVertexDeclaration9* vert_declaration = nullptr;
             //device->GetVertexDeclaration(&vert_declaration);
@@ -15,10 +27,10 @@ namespace n_hooks {
             //state->Release( );
             //device->SetVertexDeclaration( vert_declaration );
 
-            //n_render::draw_filled_rect( 25, 25, 100, 100, color_t( 255, 125, 0 ) );
+            n_render::draw_filled_rect( 25, 25, 100, 100, color_t( 255, 125, 0 ) );
 
 
-            static auto original_fn = vmt_manager->get_original_fn<HRESULT(__stdcall*)(IDirect3DDevice9*, RECT*, RECT*, HWND, RGNDATA*)>( Present );
+
             return original_fn( device, src, dst, window_override, region );
         }
     }

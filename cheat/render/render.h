@@ -2,8 +2,25 @@
 
 #include "../interfaces/interfaces.h"
 #include "../math/color.h"
+#include "directx.h"
 
 namespace n_render {
+    bool initialize( IDirect3DDevice9* device );
+
+    /* Drawing functions */
+    void draw_filled_rect( const int x, const int y, const int w, const int h, color_t color );
+
+
+
+
+
+
+
+
+
+
+
+
 	class c_graphics {
 	public:
 		enum {

@@ -200,6 +200,7 @@
     <ClCompile Include="menu\menu.cpp" />
     <ClCompile Include="netvars\netvars.cpp" />
     <ClCompile Include="player\players.cpp" />
+    <ClCompile Include="render\directx.cpp" />
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="utilities\utilities.cpp" />
     <ClCompile Include="vmt\vmt.cpp" />
@@ -228,6 +229,7 @@
     <ClInclude Include="menu\objects\tab.h" />
     <ClInclude Include="netvars\netvars.h" />
     <ClInclude Include="player\players.h" />
+    <ClInclude Include="render\directx.h" />
     <ClInclude Include="render\render.h" />
     <ClInclude Include="sdk.h" />
     <ClInclude Include="sdk\CBaseHandle.h" />
